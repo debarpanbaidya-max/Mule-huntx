@@ -29,11 +29,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ── Session (for OAuth flow only) ────────────────────────────────────────────
+// In production, trust the proxy to allow secure cookies
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
 app.use(session({
   secret: process.env.SESSION_SECRET || 'session_secret',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: process.env.NODE_ENV === 'production', maxAge: 5 * 60 * 1000 },
+  cookie: { 
+    secure: process.env.NODE_ENV === 'production', 
+    maxAge: 5 * 60 * 1000,
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+  },
 }));
 app.use(passport.initialize());
 app.use(passport.session());
