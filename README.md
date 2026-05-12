@@ -1,5 +1,8 @@
 # 🛡️ MuleGuard — Real-Time Mule Account Detection System
 
+**🌐 Live Demo:** [https://mule-huntx-15efy1eh7-dbaidya253-6200s-projects.vercel.app](https://mule-huntx-15efy1eh7-dbaidya253-6200s-projects.vercel.app)
+*(Note: As the backend is hosted on Render's free tier, please allow up to 50 seconds for the initial load if the server is asleep).*
+
 A production-grade financial fraud detection platform with a dark aesthetic React frontend and a Node.js + PostgreSQL + Neo4j backend.
 
 > **🤖 Built with AI:** This entire full-stack application, including the Neo4j graph algorithms, PostgreSQL schema, UI/UX design, and cloud deployment pipelines, was architected and built using advanced **Agentic AI** pair-programming. It serves as a testament to effective prompt engineering, architectural system design, and modern AI-driven development workflows.
