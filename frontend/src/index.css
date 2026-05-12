@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary:   #080B10;
+  --bg-card:      #0D1117;
+  --bg-elevated:  #111827;
+  --border:       rgba(255,255,255,0.06);
+  --border-glow:  rgba(0,217,255,0.2);
+  --text-primary: #E8EAED;
+  --text-muted:   #6B7280;
+  --crimson:      #E63946;
+  --amber:        #F4A261;
+  --emerald:      #2A9D8F;
+  --electric:     #00D9FF;
+  --neon:         #7B2FBE;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,217,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,217,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Card styles */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: rgba(0,217,255,0.15);
+  box-shadow: 0 0 20px rgba(0,217,255,0.05);
+}
+
+/* Risk badge */
+.risk-high   { color: var(--crimson); background: rgba(230,57,70,0.12);  border: 1px solid rgba(230,57,70,0.3);  }
+.risk-medium { color: var(--amber);   background: rgba(244,162,97,0.12); border: 1px solid rgba(244,162,97,0.3); }
+.risk-low    { color: var(--emerald); background: rgba(42,157,143,0.12); border: 1px solid rgba(42,157,143,0.3); }
+
+/* Status badge */
+.status-block  { color: #FF4D5A; background: rgba(255,77,90,0.1);  border: 1px solid rgba(255,77,90,0.2);  }
+.status-review { color: #FFB570; background: rgba(255,181,112,0.1); border: 1px solid rgba(255,181,112,0.2); }
+.status-allow  { color: #3BBDAD; background: rgba(59,189,173,0.1); border: 1px solid rgba(59,189,173,0.2); }
+
+/* Glow effects */
+.glow-electric { box-shadow: 0 0 20px rgba(0,217,255,0.15); }
+.glow-crimson  { box-shadow: 0 0 20px rgba(230,57,70,0.2);  }
+.glow-emerald  { box-shadow: 0 0 20px rgba(42,157,143,0.2); }
+
+/* Number counter */
+.counter { font-family: 'JetBrains Mono', monospace; }
+
+/* Gradient text */
+.gradient-electric {
+  background: linear-gradient(135deg, #00D9FF, #7B2FBE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated scan line */
+@keyframes scanline {
+  0%   { top: -2px; }
+  100% { top: 100%; }
+}
+.scanline::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,217,255,0.3), transparent);
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Pulse dot */
+.pulse-dot {
+  position: relative;
+  display: inline-flex;
+}
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite;
+}
+@keyframes ping {
+  75%, 100% { transform: scale(2.5); opacity: 0; }
+}
