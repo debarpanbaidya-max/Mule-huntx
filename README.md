@@ -2,6 +2,17 @@
 
 A production-grade financial fraud detection platform with a dark aesthetic React frontend and a Node.js + PostgreSQL + Neo4j backend.
 
+> **🤖 Built with AI:** This entire full-stack application, including the Neo4j graph algorithms, PostgreSQL schema, UI/UX design, and cloud deployment pipelines, was architected and built using advanced **Agentic AI** pair-programming. It serves as a testament to effective prompt engineering, architectural system design, and modern AI-driven development workflows.
+
+---
+
+## 🤖 AI-Assisted Development Highlights
+
+- **Complex System Architecture:** Leveraged AI to seamlessly integrate and synchronize two distinct databases (PostgreSQL for relational transactional data and Neo4j for complex graph-based fraud ring detection).
+- **Algorithmic Fraud Detection:** Utilized AI to write, optimize, and refine 10 complex heuristic rules (e.g., circular money flow, device sharing, rapid layering) operating in parallel in under 500ms.
+- **Cloud Infrastructure & Deployment:** Directed AI to deploy a secure, multi-service architecture using Vercel (Frontend), Render (Backend API), Neon (Serverless Postgres), and AuraDB (Cloud Neo4j).
+- **Production-Grade Security:** Implemented secure OAuth 2.0 (Google/GitHub) with JWT session management, perfectly configuring cross-origin cookies and CORS for separated frontend/backend domains.
+
 ---
 
 ## 🏗️ Architecture
@@ -251,7 +262,8 @@ mule-detection/
 
 ## 🎯 Interview Talking Points
 
-1. **Explainability**: Every decision shows exact rules triggered with weights — not a black box
+1. **AI-Driven Engineering**: Built from scratch using advanced AI collaboration, demonstrating the ability to prompt, direct, and review AI-generated code for complex microservice architectures.
+2. **Explainability**: Every decision shows exact rules triggered with weights — not a black box
 2. **Dual-database**: PostgreSQL for transactional data, Neo4j for relationship graphs
 3. **Performance**: Rules run in parallel (`Promise.all`), avg <500ms
 4. **Graph Power**: Circular flow detection, device sharing, IP clustering — impossible without Neo4j
